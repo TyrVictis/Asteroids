@@ -16,21 +16,18 @@ def main():
     Player.containers = (updatable, drawable)
     Asteroid.containters = (asteroids, updatable, drawable)
     AsteroidField.containers = updatable
-    asteroidfield = AsteroidField()
+    asteroid_field = AsteroidField()
     dt = 0
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2, PLAYER_RADIUS)
    
 
     
-
     while True:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
         pygame.Surface.fill(screen, (0, 0, 0))
-        # player.update(dt)
-        # player.draw(screen)
         updatable.update(dt)
         for obj in drawable:
             obj.draw(screen)
